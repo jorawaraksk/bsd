@@ -1,9 +1,6 @@
-FROM python:3.9.7-slim-buster
-
-WORKDIR .
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 COPY . .
-
-RUN pip3 install -r requirements.txt
-
-CMD ["python", "main.py"]
-
+CMD ["python", "-m", "bot"]
